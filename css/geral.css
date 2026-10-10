@@ -1,3 +1,125 @@
+/* Cores utilizadas em todas as páginas. */
+:root {
+  --azul-bebe: #c7e5f5;
+  --fundo: #f3f9fc;
+  --dourado: #947020;
+  --texto: #203747;
+  --branco: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--fundo);
+  color: var(--texto);
+  line-height: 1.7;
+}
+
+header {
+  background-color: var(--azul-bebe);
+  border-bottom: 3px solid var(--dourado);
+}
+
+nav {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--texto);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav a:first-child {
+  margin-right: auto;
+  font-size: 22px;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-color: var(--dourado);
+  text-underline-offset: 5px;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--dourado);
+  outline-offset: 5px;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 64px 20px;
+}
+
+h1 {
+  max-width: 750px;
+  margin: 0 0 24px;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.2;
+}
+
+main p {
+  max-width: 700px;
+  font-size: 18px;
+}
+
+.sobre-cartao,
+.dedicatoria {
+  margin-top: 24px;
+  padding: 28px;
+  background-color: var(--branco);
+  border: 1px solid var(--azul-bebe);
+  border-radius: 16px;
+}
+
+.sobre-cartao h2,
+.dedicatoria h2 {
+  margin-top: 0;
+}
+
+.dedicatoria {
+  border-top: 4px solid var(--dourado);
+}
+
+.assinatura {
+  color: var(--dourado);
+  font-weight: bold;
+}
+
+footer {
+  padding: 24px 20px;
+  background-color: var(--branco);
+  border-top: 1px solid var(--azul-bebe);
+  text-align: center;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  nav {
+    gap: 16px;
+  }
+
+  nav a:first-child {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  main {
+    padding: 40px 20px;
+  }
+}
 /* Texto pequeno acima do título da página inicial. */
 .etiqueta {
   color: var(--dourado);
