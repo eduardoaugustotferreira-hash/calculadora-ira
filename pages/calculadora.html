@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Calculadora | Calculadora IRA</title>
+  <link rel="stylesheet" href="../css/geral.css">
+</head>
+
+<body>
+  <header>
+    <nav aria-label="Menu principal">
+      <a href="index.html">Calculadora IRA</a>
+      <a href="calculadora.html" aria-current="page">Calculadora</a>
+      <a href="sobre-nos.html">Sobre nós</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Seu rendimento acadêmico</h1>
+
+    <p>
+      Informe as notas de 0 a 100 e a carga horária em horas.
+      O IRA acumulado será apresentado na escala de 0 a 1.
+    </p>
+
+    <section class="cartao" aria-labelledby="titulo-cadastro">
+      <h2 id="titulo-cadastro">Adicionar disciplina</h2>
+
+      <form id="form-disciplina">
+        <div class="campo">
+          <label for="nome">Nome da disciplina — opcional</label>
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            maxlength="120"
+            placeholder="Ex.: Cálculo I">
+        </div>
+
+        <div class="campo">
+          <label for="nota">Nota final</label>
+          <input
+            type="number"
+            id="nota"
+            name="nota"
+            min="0"
+            max="100"
+            step="0.01"
+            placeholder="Ex.: 80"
+            required>
+        </div>
+
+        <div class="campo">
+          <label for="carga-horaria">Carga horária em horas</label>
+          <input
+            type="number"
+            id="carga-horaria"
+            name="cargaHoraria"
+            min="1"
+            step="1"
+            placeholder="Ex.: 60"
+            required>
+        </div>
+
+        <div class="campo">
+          <label for="status">Situação da disciplina</label>
+          <select id="status" name="status" required>
+            <option value="">Selecione</option>
+            <option value="aprovada">Aprovada</option>
+            <option value="reprovada">Reprovada</option>
+            <option value="cancelada">Cancelada / trancada</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="semestre">Ano e semestre</label>
+          <input
+            type="text"
+            id="semestre"
+            name="semestre"
+            placeholder="Ex.: 2026.1"
+            pattern="[0-9]{4}\.[12]"
+            title="Use o formato 2026.1 ou 2026.2"
+            maxlength="6"
+            required>
+        </div>
+
+        <button class="botao" type="submit" disabled>
+          Adicionar disciplina
+        </button>
+      </form>
+
+      <p id="mensagem" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="resultados" aria-labelledby="titulo-resultados">
+      <h2 id="titulo-resultados">Resultados</h2>
+
+      <div class="cartao">
+        <h3>IRA acumulado</h3>
+        <output id="ira-acumulado">—</output>
+      </div>
+
+      <div class="cartao">
+        <h3>Rendimento por semestre</h3>
+
+        <label for="filtro-semestre">Selecione o semestre</label>
+        <select id="filtro-semestre" disabled>
+          <option value="">Nenhum semestre cadastrado</option>
+        </select>
+
+        <p>
+          Média ponderada de 0 a 100:
+          <output id="media-semestre">—</output>
+        </p>
+      </div>
+    </section>
+
+    <section class="cartao" aria-labelledby="titulo-disciplinas">
+      <h2 id="titulo-disciplinas">Disciplinas cadastradas</h2>
+
+      <p id="lista-vazia">Nenhuma disciplina cadastrada.</p>
+
+      <div class="tabela-container">
+        <table id="tabela-disciplinas" hidden>
+          <caption>Seus registros acadêmicos</caption>
+
+          <thead>
+            <tr>
+              <th scope="col">Disciplina</th>
+              <th scope="col">Nota</th>
+              <th scope="col">Carga horária</th>
+              <th scope="col">Situação</th>
+              <th scope="col">Semestre</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+
+          <tbody id="lista-disciplinas"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <p>
+      Os resultados servem para acompanhamento pessoal.
+      Consulte seu histórico acadêmico para verificar o IRA oficial.
+    </p>
+  </main>
+
+  <footer>
+    <p>Projeto independente, sem vínculo oficial com a UFPR.</p>
+  </footer>
+</body>
+</html>
